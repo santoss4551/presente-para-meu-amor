@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente do Seu Amor 💝</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #8b0000 0%, #c41e3a 50%, #d63043 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .login-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8b0000 0%, #c41e3a 50%, #d63043 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .login-container.hidden {
+            display: none;
+        }
+
+        .login-box {
+            background: white;
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            animation: scaleIn 0.5s ease-out;
+            margin: 20px;
+        }
+
+        .login-box h1 {
+            font-family: 'Playfair Display', serif;
+            color: #ff1744;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .login-box p {
+            text-align: center;
+            color: #ff5a7e;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #c41e3a;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: #bbb;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff1744;
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.3);
+        }
+
+        .input-hint {
+            color: #c41e3a;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 5px;
+            min-height: 20px;
+            padding: 2px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #c41e3a 0%, #ff1744 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .login-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 23, 68, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .login-box {
+                padding: 30px 20px;
+            }
+
+            .login-box h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-group input {
+                font-size: 16px;
+                padding: 14px;
+            }
+
+            .login-btn {
+                padding: 16px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+        }
+
+        .tabs-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid #c41e3a;
+            color: #c41e3a;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #c41e3a 0%, #ff1744 100%);
+            color: white;
+        }
+
+        .tab-btn:active {
+            transform: scale(0.95);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #c41e3a;
+            border-top: 5px solid #ff1744;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.8s ease-out;
+            color: #ff1744;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            animation: slideUp 0.8s ease-out;
+            color: #ff5a7e;
+        }
+
+        .birthday-message {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            animation: scaleIn 0.8s ease-out;
+        }
+
+        .birthday-message h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #ff1744;
+            margin-bottom: 20px;
+        }
+
+        .birthday-message p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .countdown {
+            background: linear-gradient(135deg, #ffc0d9 0%, #ffb3d9 100%);
+            color: #c41e3a;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            animation: fadeIn 1s ease-in 0.3s backwards;
+            border: 2px solid #ff1744;
+        }
+
+        .countdown h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #c41e3a;
+        }
+
+        .countdown-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 23, 68, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #ff1744;
+        }
+
+        .countdown-value {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            color: #c41e3a;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #ff5a7e;
+        }
+
+        .gallery {
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in 0.6s backwards;
+        }
+
+        .gallery h3 {
+            color: #ff1744;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            text-shadow: none;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid #ff1744;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 23, 68, 0.3);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #ffc0d9 0%, #ffb3d9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c41e3a;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .wishes-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in 0.9s backwards;
+        }
+
+        .wishes-section h3 {
+            color: #ff1744;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+        }
+
+        .wish-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .wish-item {
+            background: linear-gradient(135deg, #ff1744 0%, #ff5a7e 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            border: none;
+            font-weight: 600;
+        }
+
+        .wish-item:hover {
+            transform: scale(1.05);
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff1744;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .final-message {
+            text-align: center;
+            color: #c41e3a;
+            padding: 40px;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in 1.2s backwards;
+        }
+
+        .final-message h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ff1744;
+        }
+
+        .heart {
+            display: inline-block;
+            animation: heartbeat 1.2s infinite;
+            font-size: 2rem;
+            margin: 0 10px;
+        }
+
+        /* Memory Game Styles */
+        .memory-game {
+            display: grid;
+            /* aumentar o min size para cartas maiores */
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            /* aumentar largura máxima para comportar cartas maiores */
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+        }
+
+        .memory-card {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #ff1744 0%, #ff5a7e 100%);
+            border: 3px solid #c41e3a;
+            border-radius: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+            user-select: none;
+            overflow: hidden;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 23, 68, 0.3);
+        }
+
+        .memory-card.flipped {
+            background: white;
+            border-color: #ff1744;
+        }
+
+        .memory-card.matched {
+            opacity: 0.6;
+            cursor: default;
+        }
+
+        .memory-card.matched:hover {
+            transform: none;
+        }
+
+        .memory-card img {
+            width: 96%;
+            height: 96%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Responsividade: cartas um pouco menores em telas pequenas */
+        @media (max-width: 600px) {
+            .memory-game {
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 10px;
+                max-width: 420px;
+            }
+
+            .memory-card {
+                width: 90px;
+                height: 90px;
+                border-radius: 8px;
+            }
+
+            .memory-card img {
+                width: 88%;
+                height: 88%;
+                border-radius: 6px;
+            }
+        }
+
+        .game-info {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #c41e3a;
+            font-weight: 600;
+        }
+
+        .game-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #c41e3a 0%, #ff1744 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 23, 68, 0.4);
+        }
+
+        .game-button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.2);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .birthday-message h2 {
+                font-size: 2rem;
+            }
+
+            .wishes-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .final-message h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <h1>💕 Bem-vinda!</h1>
+            <p>Digite seu nome e senha para acessar</p>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Qual seu nome:</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu nome" required
+                        autocomplete="off">
+                    <div class="input-hint" id="nameHint"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Qual sua senha:</label>
+                    <input type="text" id="password" name="password" placeholder="Digite sua senha" required
+                        autocomplete="off">
+                    <div class="input-hint" id="passwordHint"></div>
+                </div>
+                <button type="submit" class="login-btn">Entrar na Celebração</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent" style="display: none;">
+        <div class="hero">
+            <h1>🎉 Feliz Aniversário! 🎉</h1>
+            <p>Um dia tão especial para alguém tão especial</p>
+        </div>
+
+        <div class="tabs-container">
+            <button class="tab-btn active" data-tab="dias-juntos" onclick="switchTab('dias-juntos', event)">💕 Dias
+                Juntos</button>
+            <button class="tab-btn" data-tab="aniversario" onclick="switchTab('aniversario', event)">🎂
+                Aniversário</button>
+            <button class="tab-btn" data-tab="desejos" onclick="switchTab('desejos', event)">💕 O Que Eu Amo</button>
+            <button class="tab-btn" data-tab="jogo" onclick="switchTab('jogo', event)">🎮 Jogo da Memória</button>
+        </div>
+
+        <!-- TAB 1: Dias Juntos -->
+        <div id="dias-juntos" class="tab-content active">
+            <div class="countdown">
+                <h3>💕 Nosso Tempo Junto</h3>
+                <p style="color: #ff5a7e; margin-bottom: 20px; font-size: 1.1rem;">Desde 10 de agosto de 2023</p>
+                <div class="countdown-items">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">0</span>
+                        <span class="countdown-label">Dias</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">0</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">0</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">0</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: Aniversário -->
+        <div id="aniversario" class="tab-content">
+            <div class="birthday-message">
+                <h2>Minha princesa,</h2>
+                <p>
+                    Durante muito tempo da minha vida eu vivia sozinho, sem ninguém para conversar sobre sentimentos,
+                    sobre o que eu realmente queria pra mim. Até eu encontrar você. Você foi tudo o que eu sempre
+                    precisei; você é carinhosa, gentil, alegre, brincalhona, bravinha às vezes (akakakaka), ciumenta,
+                    acolhedora, inteligente e por aí vai.
+                </p>
+                <p>
+                    Se eu colocasse todas as suas qualidades, essa lista não parava nunca. Você foi o que me mudou, fez
+                    eu enxergar o que eu queria pra minha vida. Agora eu tenho uma namorada, planos para o futuro,
+                    conquistas, metas para alcançar, tudo isso ao seu lado, e eu não poderia deixar esse dia passar em
+                    branco, né?
+                </p>
+                <p>
+                    Essa é uma data MUITO especial: são seus 15 ANOS, olha que loucura! Logo logo a gente vai estar na
+                    nossa casinha, lembrando do passado e rindo de tudo que já aconteceu na nossa trajetória.
+                </p>
+                <p>
+                    Feliz aniversário, meu amor. Obrigado por tudo o que você me fez passar, por todos os nossos
+                    momentos, todas as nossas risadas. Obrigado por tudo e por quem você é. Por favor, lê esse texto no
+                    ritmo certo (tá tão bom escrever isso).
+                </p>
+                <p>
+                    Por mais que a gente passe por momentos difíceis por coisas que são besteira se for olhar, eu vou
+                    sempre preferir passar um momento difícil com você do que um fácil sem você. Todos os dias eu
+                    agradeço por ter você na minha vida, por você ter se encontrado comigo. Eu vou sempre te levar aonde
+                    eu for (até porque a gente sempre vai ficar juntinhos alakka).
+                </p>
+                <p>
+                    Esse texto não tá tão bonito, mas é mais pra dizer o quanto minha vida tá sendo incrível com você, o
+                    quanto esses seus sorrisinhos bobos me fizeram chorar de alegria, o quanto esses seus olhinhos me
+                    deixaram bobo. Eu sempre vou ser o seu menininho e você sempre a minha menininha, a minha princesa.
+                    Que você conquiste várias coisas, meu amor, que você consiga vencer seus obstáculos pra chegar nos
+                    seus objetivos (comigo, é claro). Aproveita seu dia porque você merece, meu bem. Eu sei o quão
+                    esforçada você é, esse é seu dia de descanso, então aproveita ele.
+                </p>
+                <p>
+                    Por mais que eu não esteja junto com você no momento, eu sempre vou estar aqui para você. Eu sempre
+                    vou te amar. Acho que mesmo se você pegar todas as estrelas do universo não vai dar 10% do que eu te
+                    amo, ou até mesmo da sua beleza, porque meu Deus que gata que você é, amor, não só por fora e sim
+                    por dentro também. Obrigado por ser assim, amor.
+                </p>
+                <p>
+                    Acho que é só isso que eu tenho pra falar por enquanto akakak, eu tô chorando, mas é de felicidade
+                    pelo menos. Aproveita, amor; você merece!!!
+                </p>
+                <p style="margin-top: 30px; font-style: italic;">
+                    Com todo amor,<br>
+                    ❤️ Seu príncipe
+                </p>
+            </div>
+        </div>
+        <!-- TAB 3: O Que Eu Amo Em Você -->
+        <div id="desejos" class="tab-content">
+            <div class="wishes-section">
+                <h3>💕 O Que Eu Amo Em Você</h3>
+                <div class="wish-items">
+                    <div class="wish-item">👀 Seus Olhos Lindos</div>
+                    <div class="wish-item">😊 Seu Sorriso que Ilumina</div>
+                    <div class="wish-item">🤗 Seus Abraços Aconchegantes</div>
+                    <div class="wish-item">💖 Seu Carinho Sem Fim</div>
+                    <div class="wish-item">🎯 Sua Determinação</div>
+                    <div class="wish-item">😂 Seu Senso de Humor</div>
+                    <div class="wish-item">🧠 Sua Inteligência</div>
+                    <div class="wish-item">🎨 Sua Criatividade</div>
+                    <div class="wish-item">🌹 Sua Sensibilidade</div>
+                    <div class="wish-item">🤝 Seu Apoio Incondicional</div>
+                    <div class="wish-item">� Sua Voz que Acalma</div>
+                    <div class="wish-item">✨ Seu Jeito Único de Amar</div>
+                    <div class="wish-item">🧡 Sua Lealdade</div>
+                    <div class="wish-item">🙌 Sua Paciência</div>
+                    <div class="wish-item">🌟 Seu Otimismo</div>
+                    <div class="wish-item">🕊️ Seu Cuidado</div>
+                </div>
+                <div class="final-message" style="margin-top: 40px;">
+                    <h2>Você é tudo para mim! <span class="heart">❤️</span></h2>
+                    <p style="font-size: 1.1rem; margin-top: 15px; line-height: 1.8;">
+                        Obrigado por ser você, quem você é.<br>
+                        Eu sou o menino mais feliz do mundo com você!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: Jogo da Memória -->
+        <div id="jogo" class="tab-content">
+            <div class="birthday-message" style="text-align: center; padding: 20px;">
+                <h2 style="font-size: 2rem; margin-bottom: 10px;">🎮 Jogo da Memória</h2>
+                <p style="margin-bottom: 20px;">Encontre os pares de fotos nossas! 💕</p>
+                <div class="game-info">
+                    <p>Movimentos: <span id="movesCount">0</span> | Pares encontrados: <span
+                            id="matchedCount">0</span>/<span id="totalPairs">6</span></p>
+                </div>
+                <div class="memory-game" id="memoryGame"></div>
+                <button class="game-button" onclick="resetMemoryGame()">🔄 Recomeçar Jogo</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Debug overlay: captura erros JS e mostra uma caixa na página (útil se o Console não for fácil de abrir)
+        (function () {
+            function esc(s) {
+                return String(s)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+            }
+
+            const overlay = document.createElement('div');
+            overlay.id = '__debugOverlay';
+            overlay.style.cssText = 'position:fixed;left:10px;right:10px;top:10px;padding:12px;z-index:99999;background:rgba(0,0,0,0.85);color:#fff;border-radius:8px;max-height:70vh;overflow:auto;font-family:monospace;display:none;';
+            overlay.innerHTML = '<strong>Erro detectado:</strong><div id="__debugOverlayContent" style="white-space:pre-wrap;margin-top:8px;"></div><div style="text-align:right;margin-top:8px;"><button id="__debugOverlayClose">Fechar</button></div>';
+            document.addEventListener('DOMContentLoaded', () => document.body.appendChild(overlay));
+            document.addEventListener('click', (e) => {
+                if (e.target && e.target.id === '__debugOverlayClose') overlay.style.display = 'none';
+            });
+
+            function showError(msg) {
+                const content = document.getElementById('__debugOverlayContent');
+                if (content) content.innerHTML = esc(msg);
+                overlay.style.display = 'block';
+            }
+
+            window.addEventListener('error', function (e) {
+                try {
+                    const info = `${e.message}\n${e.filename}:${e.lineno}:${e.colno}\n${(e.error && e.error.stack) || ''}`;
+                    showError(info);
+                } catch (err) {
+                    // ignore
+                }
+            });
+
+            window.addEventListener('unhandledrejection', function (e) {
+                try {
+                    const reason = e.reason && (e.reason.stack || e.reason.message || e.reason);
+                    showError('UnhandledRejection:\n' + reason);
+                } catch (err) {
+                    // ignore
+                }
+            });
+        })();
+        // Função para remover acentos
+        function removeAccents(str) {
+            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        // Função para normalizar (remover acentos e converter para minúsculas)
+        function normalize(str) {
+            return removeAccents(str).toLowerCase().trim();
+        }
+
+        // Credenciais corretas (normalizadas)
+        const CORRECT_USERNAME = normalize("namorada do léo");
+        const CORRECT_PASSWORD = normalize("10/08");
+
+        // Event listeners para validação em tempo real
+        document.getElementById('username').addEventListener('input', function () {
+            validateUsername(this.value);
+        });
+
+        document.getElementById('password').addEventListener('input', function () {
+            validatePassword(this.value);
+        });
+
+        // Validar nome de usuário
+        function validateUsername(value) {
+            const normalizedValue = normalize(value);
+            const nameHint = document.getElementById('nameHint');
+
+            if (value.length === 0) {
+                nameHint.innerHTML = '';
+            } else if (normalizedValue !== CORRECT_USERNAME) {
+                nameHint.innerHTML = '💡 Tente esse nome: "Namorada do Léo"';
+            } else {
+                nameHint.innerHTML = '';
+            }
+        }
+
+        // Validar senha
+        function validatePassword(value) {
+            const normalizedValue = normalize(value);
+            const passwordHint = document.getElementById('passwordHint');
+
+            if (value.length === 0) {
+                passwordHint.innerHTML = '';
+            } else if (normalizedValue !== CORRECT_PASSWORD) {
+                passwordHint.innerHTML = '💡 Tente essa senha: "10/08"';
+            } else {
+                passwordHint.innerHTML = '';
+            }
+        }
+
+        // Handle login
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const normalizedUsername = normalize(username);
+            const normalizedPassword = normalize(password);
+
+            // Verificar credenciais
+            if (normalizedUsername === CORRECT_USERNAME && normalizedPassword === CORRECT_PASSWORD) {
+                localStorage.setItem('authenticated', 'true');
+                document.getElementById('loginContainer').classList.add('hidden');
+                showCelebration();
+            } else {
+                // Validar e mostrar hints
+                if (normalizedUsername !== CORRECT_USERNAME) {
+                    document.getElementById('nameHint').innerHTML = '💡 Tente esse nome: "Namorada do Léo"';
+                }
+                if (normalizedPassword !== CORRECT_PASSWORD) {
+                    document.getElementById('passwordHint').innerHTML = '💡 Tente essa senha: "10/08"';
+                }
+            }
+        }
+
+        // Show celebration page
+        function showCelebration() {
+            document.getElementById('mainContent').style.display = 'block';
+            startCountdownFromDate();
+            createConfetti();
+        }
+
+        // Switch between tabs
+        function switchTab(tabName, evt) {
+            // Hide all tabs
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const allButtons = document.querySelectorAll('.tab-btn');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button (use event if disponível)
+            if (evt && evt.currentTarget) {
+                evt.currentTarget.classList.add('active');
+            } else if (evt && evt.target) {
+                // fallback
+                evt.target.classList.add('active');
+            } else {
+                // final fallback: find button by data-tab attribute
+                const btn = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+                if (btn) btn.classList.add('active');
+            }
+        }
+
+        // Countdown desde 10 de agosto de 2023
+        function startCountdownFromDate() {
+            const startDate = new Date(2023, 7, 10); // Agosto = 7 (0-indexed)
+
+            const timer = setInterval(() => {
+                const now = new Date();
+                const difference = now - startDate;
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }, 1000);
+        }
+
+        // Check if user already logged in
+        window.addEventListener('load', () => {
+            const authenticated = localStorage.getItem('authenticated');
+
+            if (authenticated === 'true') {
+                document.getElementById('loginContainer').classList.add('hidden');
+                showCelebration();
+            }
+            initMemoryGame();
+        });
+
+        // Confetti effect quando a página carrega
+        function createConfetti() {
+            const confettiCount = 50;
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = Math.random() * window.innerHeight + 'px';
+                confetti.style.backgroundColor = ['#ff1744', '#ff5a7e', '#c41e3a', '#ffc0d9', '#ffb3d9'][Math.floor(Math.random() * 5)];
+                confetti.style.animation = `float ${2 + Math.random() * 2}s ease-in-out infinite`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 10000);
+            }
+        }
+
+        // Iniciar confete
+        window.addEventListener('load', createConfetti);
+
+        // Countdown Timer
+        function updateCountdown() {
+            // Defina a data do próximo encontro (modifique conforme necessário)
+            // Aqui estamos usando 7 dias a partir de agora como exemplo
+            const nextMeeting = new Date();
+            nextMeeting.setDate(nextMeeting.getDate() + 7);
+            nextMeeting.setHours(19, 0, 0, 0);
+
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = nextMeeting.getTime() - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById('days').textContent = '0';
+                    document.getElementById('hours').textContent = '0';
+                    document.getElementById('minutes').textContent = '0';
+                    document.getElementById('seconds').textContent = '0';
+                }
+            }, 1000);
+        }
+
+        updateCountdown();
+
+        // Memory Game Logic
+        // Agora detecta automaticamente imagens nomeadas img1..img6 com várias extensões
+        const emojiCards = [
+            '📸', '📸', '💑', '💑', '💕', '💕', '👀', '👀', '😊', '😊', '🌹', '🌹'
+        ];
+
+        let gameBoard = [];
+        let flipped = [];
+        let matched = [];
+        let moves = 0;
+        let totalPairs = 6; // será atualizado dinamicamente
+
+        function testImage(path) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = path;
+            });
+        }
+
+        // Tenta encontrar imagens img1..imgN nas extensões fornecidas
+        async function findAvailableImages(count) {
+            const exts = ['.jpg', '.jpeg', '.png', '.svg'];
+            const found = [];
+            for (let i = 1; i <= count; i++) {
+                let good = null;
+                for (const e of exts) {
+                    const p = `images/img${i}${e}`;
+                    // eslint-disable-next-line no-await-in-loop
+                    if (await testImage(p)) {
+                        good = p;
+                        break;
+                    }
+                }
+                if (good) found.push(good);
+            }
+            return found;
+        }
+
+        async function initMemoryGame() {
+            gameBoard = [];
+            flipped = [];
+            matched = [];
+            moves = 0;
+            document.getElementById('movesCount').textContent = '0';
+            document.getElementById('matchedCount').textContent = '0';
+
+            // Procura por imagens img1..img6 com diferentes extensões
+            const found = await findAvailableImages(6);
+
+            if (found.length > 0) {
+                totalPairs = found.length;
+                document.getElementById('totalPairs').textContent = totalPairs;
+                const pairs = [...found, ...found];
+                gameBoard = shuffleArray(pairs);
+            } else {
+                // fallback para emojis (6 pares)
+                totalPairs = 6;
+                document.getElementById('totalPairs').textContent = totalPairs;
+                gameBoard = shuffleArray(emojiCards);
+            }
+
+            renderMemoryGame();
+        }
+
+        // Fisher-Yates shuffle algorithm para embaralhamento melhor
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function renderMemoryGame() {
+            const gameContainer = document.getElementById('memoryGame');
+            gameContainer.innerHTML = '';
+            gameBoard.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'memory-card';
+
+                const isMatched = matched.includes(index);
+                const isFlipped = flipped.includes(index);
+
+                if (isMatched || isFlipped) {
+                    cardElement.classList.add(isMatched ? 'matched' : 'flipped');
+
+                    // Se for string com extensão, tratamos como imagem
+                    if (typeof card === 'string' && card.indexOf('.') !== -1) {
+                        const img = document.createElement('img');
+                        img.src = card;
+                        img.alt = 'foto';
+                        cardElement.appendChild(img);
+                    } else {
+                        cardElement.textContent = card;
+                    }
+                } else {
+                    cardElement.textContent = '❓';
+                }
+
+                cardElement.onclick = () => flipCard(index, cardElement);
+                gameContainer.appendChild(cardElement);
+            });
+        }
+
+        function flipCard(index, element) {
+            if (flipped.includes(index) || matched.includes(index) || flipped.length >= 2) return;
+
+            flipped.push(index);
+
+            // Atualizar visual do elemento clicado
+            const card = gameBoard[index];
+            element.classList.add('flipped');
+            element.innerHTML = '';
+            if (typeof card === 'string' && card.indexOf('.') !== -1) {
+                const img = document.createElement('img');
+                img.src = card;
+                img.alt = 'foto';
+                element.appendChild(img);
+            } else {
+                element.textContent = card;
+            }
+
+            if (flipped.length === 2) {
+                moves++;
+                document.getElementById('movesCount').textContent = moves;
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [first, second] = flipped;
+
+            if (gameBoard[first] === gameBoard[second]) {
+                matched.push(first, second);
+                document.getElementById('matchedCount').textContent = matched.length / 2;
+                flipped = [];
+
+                if (matched.length === gameBoard.length) {
+                    setTimeout(() => {
+                        alert(`🎉 Parabéns! Você venceu em ${moves} movimentos! 💕`);
+                    }, 300);
+                }
+            } else {
+                setTimeout(() => {
+                    flipped = [];
+                    renderMemoryGame();
+                }, 600);
+            }
+            renderMemoryGame();
+        }
+
+        function resetMemoryGame() {
+            initMemoryGame();
+        }
+
+        // Efeito de som (opcional)
+        window.addEventListener('load', () => {
+            // Você pode adicionar uma música de fundo descomentando abaixo
+            // const audio = new Audio('happy-birthday.mp3');
+            // audio.play();
+        });
+    </script>
+</body>
+</html>
